@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Lora:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #CCCCCC;
+  --color-foreground: #2c3e50;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #2c3e50;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #2c3e50;
+
+  --color-primary: #34495e; 
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #f8f9fa;
+  --color-secondary-foreground: #2c3e50;
+
+  --color-muted: #ecf0f1;
+  --color-muted-foreground: #7f8c8d;
+
+  --color-accent: #ecf0f1;
+  --color-accent-foreground: #2c3e50;
+
+  --color-destructive: #e74c3c; 
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #bdc3c7;
+  --color-input: #ffffff;
+  --color-ring: #34495e;
+
+  --color-chart-1: #3498db; 
+  --color-chart-2: #34495e;
+  --color-chart-3: #2c3e50;
+  --color-chart-4: #f39c12;
+  --color-chart-5: #e74c3c;
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #2c3e50;
+  --color-sidebar-primary: #34495e;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #ecf0f1;
+  --color-sidebar-accent-foreground: #2c3e50;
+  --color-sidebar-border: #bdc3c7;
+  --color-sidebar-ring: #34495e;
+
+  --font-heading: "Lora", serif;
+  --font-body: "Montserrat", sans-serif;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #bdc3c7;
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: #CCCCCC;
+    --foreground: #2c3e50;
+    --card: #ffffff;
+    --card-foreground: #2c3e50;
+    --popover: #ffffff;
+    --popover-foreground: #2c3e50;
+    --primary: #34495e;
+    --primary-foreground: #ffffff;
+    --secondary: #f8f9fa;
+    --secondary-foreground: #2c3e50;
+    --muted: #ecf0f1;
+    --muted-foreground: #7f8c8d;
+    --accent: #ecf0f1;
+    --accent-foreground: #2c3e50;
+    --destructive: #e74c3c; 
+    --destructive-foreground: #ffffff;
+    --border: #bdc3c7;
+    --input: #ffffff;
+    --ring: #34495e;
+    --chart-1: #3498db; 
+    --chart-2: #34495e;
+    --chart-3: #2c3e50;
+    --chart-4: #f39c12;
+    --chart-5: #e74c3c;
+    --radius: 0.5rem;
+    --sidebar-background: #ffffff;
+    --sidebar-foreground: #2c3e50;
+    --sidebar-primary: #34495e;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #ecf0f1;
+    --sidebar-accent-foreground: #2c3e50;
+    --sidebar-border: #bdc3c7;
+    --sidebar-ring: #34495e;
+  }
+
+  .dark {
+    --background: #2c3e50;
+    --foreground: #ecf0f1;
+    --card: #34495e;
+    --card-foreground: #ecf0f1;
+    --popover: #34495e;
+    --popover-foreground: #ecf0f1;
+    --primary: #3498db;
+    --primary-foreground: #ffffff;
+    --secondary: #34495e;
+    --secondary-foreground: #ecf0f1;
+    --muted: #34495e;
+    --muted-foreground: #95a5a6;
+    --accent: #34495e;
+    --accent-foreground: #ecf0f1;
+    --destructive: #e74c3c; 
+    --destructive-foreground: #ffffff;
+    --border: #7f8c8d;
+    --input: #34495e;
+    --ring: #3498db;
+    --chart-1: #3498db; 
+    --chart-2: #34495e;
+    --chart-3: #2c3e50;
+    --chart-4: #f39c12;
+    --chart-5: #e74c3c;
+    --sidebar-background: #2c3e50;
+    --sidebar-foreground: #ecf0f1;
+    --sidebar-primary: #3498db;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #34495e;
+    --sidebar-accent-foreground: #ecf0f1;
+    --sidebar-border: #7f8c8d;
+    --sidebar-ring: #3498db;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  p {
+    color: #4A4A4A;
+  }
+
+  /* IMPORTANT & CRITICAL: Always define the container class in this way */
+  .container {
+    margin-inline: auto;  /* IMPORTANT & CRITICAL: Always define the margin-inline property in this way */
+    padding-inline: 2rem;  /* IMPORTANT & CRITICAL: Always define the padding-inline property in this way */
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
